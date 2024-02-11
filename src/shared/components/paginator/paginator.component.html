@@ -1,0 +1,22 @@
+<div class="container">
+  <i
+    class="pi pi-chevron-left"
+    [class]="{
+      disabled: currentPage === MIN_PAGE,
+      'cursor-pointer': currentPage !== MIN_PAGE,
+    }"
+    (click)="moveBackward()"
+  >
+  </i>
+  <div>Page {{ currentPage }} of {{ MAX_PAGE }}</div>
+  <i
+    class="pi pi-chevron-right"
+    [class]="{
+      disabled: currentPage === MAX_PAGE,
+      'cursor-pointer': currentPage !== MAX_PAGE,
+
+    }"
+    (click)="moveForward()"
+  >
+  </i>
+</div>

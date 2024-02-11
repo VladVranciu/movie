@@ -1,0 +1,33 @@
+<div class="movie-list__container">
+  <div class="movie-list__container__title"><h3>Most popular movies</h3></div>
+  @if(movieStore.isLoading()) {
+    <div class="movie-list__loader">
+      <i class="pi pi-spin pi-spinner" style="font-size: 36px"></i>
+    </div>
+  } @else {
+  <div class="movie-list">
+    @for (movie of movieStore.movies(); track $index) {
+    <div class="movie-list__item" (click)="selectMovie(movie.id)">
+      <div
+        class="truncate"
+        [class]="{
+          'movie-list__item__text': movie.id !== movieStore.selectedMovieId(),
+          'movie-list__item__text--selected':
+            movie.id === movieStore.selectedMovieId()
+        }"
+      >
+        {{ movie.title }}
+      </div>
+    </div>
+    } @empty {
+      <div class="movie-list__error">
+        Something went wrong. Please <u class="movie-list__error__try-again" (click)="tryAgain()">try again</u>.
+      </div>
+    }
+  </div>
+  }
+  <app-paginator
+    [currentPage]="movieStore.page()"
+    (currentPageChanged)="onPageChange($event)"
+  />
+</div>
