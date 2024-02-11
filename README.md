@@ -2,7 +2,7 @@
 
 On the 'main' branch you will find an example of using @ngrx/store library for state management. Here is the classic way of doing things without signals. Application is modular and the state management is applied on the 'Movie' entity under the 'Movie' module.
 
-There also is the branch 'signal-store' in which I implemented an example of how @ngrx/signal library makes everything more concise and gets the reactivity to a whole another level. This application version uses standalone components.
+There also is the branch 'signal-store' in which I implemented an example of how @ngrx/signal library makes everything more concise and gets the reactivity to a whole another level. This application version uses standalone components. In this branch I used the new control-flow of version 17.
 
 # Movies
 
