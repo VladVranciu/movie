@@ -1,0 +1,7 @@
+<div class="container">
+  <app-movie-list />
+  <router-outlet />
+  <div *ngIf="doesNotHaveSelectedMovie$ | async" class="not-selected">
+    Select from the movie list for details!
+  </div>
+</div>

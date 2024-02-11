@@ -1,0 +1,30 @@
+<div class="movie-list__container">
+  <div class="movie-list__container__title"><h3>Most popular movies</h3></div>
+  <div *ngIf="isLoading" class="movie-list__loader">
+    <i class="pi pi-spin pi-spinner" style="font-size: 36px"></i>
+  </div>
+  <div *ngIf="!isLoading" class="movie-list">
+    <div
+      *ngFor="let movie of movies"
+      class="movie-list__item"
+      (click)="selectMovie(movie.id)"
+    >
+      <div
+        class="truncate"
+        [class]="{
+          'movie-list__item__text': movie.id !== selectedMovieId,
+          'movie-list__item__text--selected': movie.id === selectedMovieId
+        }"
+      >
+        {{ movie.title }}
+      </div>
+    </div>
+    <div class="movie-list__error" *ngIf="!movies.length">
+      Something went wrong. Please <u class="movie-list__error__try-again" (click)="tryAgain()">try again</u>.
+    </div>
+  </div>
+  <app-paginator
+    [currentPage]="selectedCurrentPage"
+    (currentPageChanged)="onPageChange($event)"
+  />
+</div>

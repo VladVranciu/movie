@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px 10px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;;
+}
+
+.arrows {
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

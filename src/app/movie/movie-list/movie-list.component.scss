@@ -1,0 +1,67 @@
+@import '../../../assets/theme/variables';
+
+.movie-list {
+  padding: 0px 20px 20px 20px;
+  height: 100%;
+  &__loader, &__error {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__error {
+    &__try-again {
+      cursor: pointer;
+      margin-left: 5px;
+    }
+  }
+  &__container {
+    width: 500px;
+    height: 875px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: $lightgrey;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    &__title {
+      background-color: $blue;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border: 1px solid #637a9f;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      color: rgb(255, 255, 255);
+    }
+  }
+  &__item {
+    border-right: 1px solid grey;
+    border-left: 1px solid grey;
+    border-top: 1px solid grey;
+    padding: 5px 3px;
+    cursor: pointer;
+    &__text {
+      border-radius: 5px;
+      padding: 3px 6px;
+      &--selected {
+        background-color: $navy;
+        color: white;
+        border-radius: 5px;
+        padding: 3px 6px;
+      }
+    }
+    &__text:hover {
+      background-color: $blue;
+      color: white;
+    }
+  }
+  &__item:last-child {
+    border-bottom: 1px solid grey;
+  }
+  &__item--selected {
+    background-color: $navy;
+    color: white;
+  }
+}

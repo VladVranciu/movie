@@ -1,0 +1,34 @@
+<div class="container">
+  <div *ngIf="selectedMovie?.title" class="movie__container">
+    <div *ngIf="isLoadingMovie" class="movie__loader">
+      <i class="pi pi-spin pi-spinner" style="font-size: 36px"></i>
+    </div>
+    <div *ngIf="!isLoadingMovie" class="movie__poster">
+      <div
+        class="blur-load"
+        [class]="{
+          loaded: !isImgLoading
+        }"
+      >
+        <i class="pi pi-spin pi-spinner" style="font-size: 36px"></i>
+        <img
+          role="presentation"
+          [src]="imageSrc"
+          width="400"
+          height="auto"
+          (load)="onLoaded()"
+        />
+      </div>
+    </div>
+    <div class="movie__details">
+      <div class="movie_details__title">
+        <h2>
+          {{ selectedMovie?.title }}
+        </h2>
+      </div>
+      <div class="movie_details__description">
+        {{ selectedMovie?.overview }}
+      </div>
+    </div>
+  </div>
+</div>
